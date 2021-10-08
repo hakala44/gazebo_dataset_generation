@@ -3,6 +3,15 @@ This is a gazebo based pipeline to generate simnulated rgb/depth images for crea
 
 ![View Sampling procedure](/assets/images/view_sampling.jpg "View Sampling procedure")
 
+Watch the video on [Youtube](https://www.youtube.com/watch?v=Fa-J-9h2a0w​ "Dataset Generation in Gazebo Simulator").
+
+## Requirements
+
+- Ubuntu 20.04 and ROS Noetic
+- Gazebo multi-robot simulator, version 11.5.1
+- Anaconda distribution 
+- Python 3.6 
+
 ## Installation
 1. Create a catkin_ws in your working directory :
     ~~~
