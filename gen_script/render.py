@@ -29,8 +29,8 @@ import argparse
 #%% Argument parser
 parser = argparse.ArgumentParser(description = 'parse some parameters')
 parser.add_argument("models", nargs='+', help="Enter the names of the models seperated by a space")
-args = parser.parse_args()
-#args = parser.parse_args('left_gear'.split())
+#args = parser.parse_args()
+args = parser.parse_args('left_gear'.split())
 
 n_models = len(args.models)
 
@@ -118,7 +118,7 @@ sample_num = 0
 
 for dist in np.arange(0.15,0.5,0.125):
     for phi in range(35,90,15):
-        for theta in range(0, 360, 15):
+        for theta in range(0, 360, 30):
             
             theta_rad = np.deg2rad(theta)
             phi_rad = np.deg2rad(phi)
@@ -131,10 +131,10 @@ for dist in np.arange(0.15,0.5,0.125):
 
             camPos = Pose(position= Point(x=X, y=Y, z=Z), orientation= Quaternion(x=cam_quat[0], y=cam_quat[1] , z=cam_quat[2], w=cam_quat[3]))
             camTwist = Twist(linear= Vector3(x=0, y=0, z=0) , angular= Vector3(x=0, y=0, z=0))
-
+	
             set_cam_state_gazebo(camPos, camTwist)
-            rospy.sleep(0.15)
-            
+            rospy.sleep(1)
+       
             while not rospy.is_shutdown():
                 print('Subscribing to camera topics...')
                 
@@ -152,36 +152,4 @@ for dist in np.arange(0.15,0.5,0.125):
             cv2.imwrite('depth/'+str(sample_num)+'.png',cv_depthImage)
             sample_num += 1
             
-            """
-            resp=[]
-            #Get object state 
-            try: 
-                rospy.wait_for_service('gazebo/get_model_state')
-                client = rospy.ServiceProxy('gazebo/get_model_state', getStateGZ)
-                for i in range(len(args.models)):
-                    resp.append( client(args.models[i], 'world'))
-            except Exception as inst:
-                     print('Error in gazebo/get_link_state service request: ' + str(inst) )
-        
-             # Camera Extrinsics
-            cam_world_R = cam_euler.as_dcm()
-            cam_world_t = np.array([X,Y,Z]).reshape(3,1)
-            cam_world_T = np.hstack((cam_world_R,cam_world_t))
-            cam_world_T = np.vstack((cam_world_T, [0,0,0,1]))   
-             
-            # True Object pose in world frame obtained from Gazebo Service
-            obj_cam_T = np.zeros((  4, 4, n_models )) # Transformation Mats for 10 object classes
-            for i in range(0 , n_models):
-                obj_pos = np.array([resp[i].pose.position.x, resp[i].pose.position.y, resp[i].pose.position.z]).reshape(3,1)
-                obj_or = [resp[i].pose.orientation.x, resp[i].pose.orientation.y, resp[i].pose.orientation.z, resp[i].pose.orientation.w]
-                obj_or = (R.from_quat(obj_or)).as_dcm()
-                obj_world_T = np.concatenate((obj_or, obj_pos), axis = 1) 
-                
-                # Transformation from object2world to  object2cam for GT label poses
-                #obj_cam_T = np.dot(obj_world_T, np.linalg.inv(cam_world_T) )
-                obj_world_T = np.vstack(( obj_world_T, [0,0,0,1] ))
-                obj_cam_T[:, :, i] = np.dot( np.linalg.inv(cam_world_T), obj_world_T )#[:3,:]
-            gt_dict = { 'poses':obj_cam_T[:3,:,:] }
-            sio.savemat('meta/'+str(sample_num)+'-meta.mat',gt_dict)
-            """
             
