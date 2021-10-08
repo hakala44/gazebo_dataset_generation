@@ -26,6 +26,7 @@ This is a gazebo based pipeline to generate simnulated rgb/depth images for crea
     ~~~
     $ cd src
     $ conda env create -f env.yml
+    $ conda activate open3d
     ~~~
 
 6. modify the sdf files,world file , include new nesh files and re launch
