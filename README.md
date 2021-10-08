@@ -29,13 +29,13 @@ This is a gazebo based pipeline to generate simnulated rgb/depth images for crea
     $ conda activate open3d
     ~~~
 
-6. modify the sdf files,world file , include new nesh files and re launch
+6. mḾodify the gazebo world according to the preference of your dataset.
     
-    Include the mesh file, model.sdf, model.config files of your dataset in data_generation/models folder
+    Include the mesh files, model.sdf, model.config files of the objects in your dataset in data_generation/models folder
     
-    Include the objects in data_generation/Worlds/metrics.world file according to preference:
+    Include the following in data_generation/Worlds/metrics.world file according to preference
 
-    An example of loading the object 'left_gear' on to the table is as below
+    An example of loading the object 'left_gear' on to the table is as below :
     ~~~
     <include>
       <uri>model://left_gear</uri>
