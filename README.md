@@ -17,12 +17,12 @@ This is a gazebo based pipeline to generate simnulated rgb/depth images for crea
     $ cd ..
     $ catkin_make
     ~~~
-4. roslaunch the world
+4. roslaunch the gazebo world
     ~~~
     $ source devel/setup.bash 
     $ roslaunch data_generation metrics.launch
     ~~~ 
-5. Install requirements and activate conda environment
+5. Install dependencies and activate conda environment. ( you need to have anaconda installed and configured )
     ~~~
     $ cd src
     $ conda env create -f env.yml
