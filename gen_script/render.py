@@ -29,8 +29,8 @@ import argparse
 #%% Argument parser
 parser = argparse.ArgumentParser(description = 'parse some parameters')
 parser.add_argument("models", nargs='+', help="Enter the names of the models seperated by a space")
-#args = parser.parse_args()
-args = parser.parse_args('left_gear'.split())
+args = parser.parse_args()
+#args = parser.parse_args('left_gear'.split())
 
 n_models = len(args.models)
 
@@ -116,7 +116,7 @@ def check_dup():
 #%% Main program
 sample_num = 0
 
-for dist in np.arange(0.15,0.5,0.125):
+for dist in np.arange(0.15,0.625,0.125):
     for phi in range(35,90,15):
         for theta in range(0, 360, 30):
             
