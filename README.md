@@ -1,5 +1,7 @@
 ## Introduction
-This is a gazebo based pipeline to generate simnulated rgb/depth images for creating datasets for deep learning tasks. A Kinect camera is simulated around the origin of the world according to a pre-defined algorithm and images are captured and saved.
+This is a gazebo based pipeline to generate simnulated rgb/depth images for creating datasets for deep learning tasks. A Kinect camera is simulated around the origin of the world (view sampling) according to a pre-defined algorithm and images are captured and saved.
+
+![View Sampling procedure](/assets/images/view_sampling.jpg "View Sampling procedure")
 
 ## Installation
 1. Create a catkin_ws in your working directory :
