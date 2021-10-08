@@ -44,8 +44,8 @@ if not os.path.exists('rgb'):
     os.makedirs('rgb')
 if not os.path.exists('depth'):
     os.makedirs('depth')
-if not os.path.exists('meta'):
-    os.makedirs('meta')    
+#if not os.path.exists('meta'):
+#    os.makedirs('meta')    
     
 #%% Function to set camera position and pose
 def set_cam_state_gazebo(camPos, camTwist):
@@ -152,6 +152,7 @@ for dist in np.arange(0.15,0.5,0.125):
             cv2.imwrite('depth/'+str(sample_num)+'.png',cv_depthImage)
             sample_num += 1
             
+            """
             resp=[]
             #Get object state 
             try: 
@@ -182,5 +183,5 @@ for dist in np.arange(0.15,0.5,0.125):
                 obj_cam_T[:, :, i] = np.dot( np.linalg.inv(cam_world_T), obj_world_T )#[:3,:]
             gt_dict = { 'poses':obj_cam_T[:3,:,:] }
             sio.savemat('meta/'+str(sample_num)+'-meta.mat',gt_dict)
-            
+            """
             
