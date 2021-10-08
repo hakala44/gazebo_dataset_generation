@@ -1,5 +1,5 @@
 ## Introduction
-This is a gazebo based pipeline to generate simulated rgb/depth image datasets. Simulated datasets are an convienient approach to obtain customized data for deep learning tasks. In this approach, A Kinect camera is simulated around the origin of the gazebo world (view sampling) according to a pre-defined algorithm and images are captured and saved.
+This is a gazebo based pipeline to generate simulated rgb/depth image datasets. A Simulated datasets is an convienient approach to obtain customized data for deep learning project, compared to real data. In this approach, A Kinect camera is simulated around the origin of the gazebo world (view sampling) according to a pre-defined algorithm and images are captured and saved.
 
 ![View Sampling procedure](/assets/images/view_sampling.jpg "View Sampling procedure")
 
