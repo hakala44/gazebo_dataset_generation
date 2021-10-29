@@ -20,7 +20,7 @@ Watch the video on [Youtube](https://www.youtube.com/watch?v=Fa-J-9h2a0w​ "Dat
 2. Clone the repo into your src folder :
     ~~~
     $ cd catkin_ws/src
-    $ git clone --branch object_classification https://github.com/KulunuOS/gazebo_dataset_generation.git
+    $ git clone --branch object_classification https://github.com/KulunuOS/gazebo_dataset_generation.git .
     ~~~
 
 3. Build the workspace
