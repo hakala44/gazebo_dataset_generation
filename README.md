@@ -15,7 +15,7 @@ Watch the video on [Youtube](https://www.youtube.com/watch?v=Fa-J-9h2a0w​ "Dat
 ## Installation
 1. Create a catkin_ws in your working directory :
     ~~~
-    $ mkdir -p ~/catrkin_ws/src
+    $ mkdir -p ~/catkin_ws/src
     ~~~
 2. Clone the repo into your src folder :
     ~~~
