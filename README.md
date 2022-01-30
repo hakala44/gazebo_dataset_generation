@@ -1,3 +1,8 @@
+## Robotics project work
+
+This repository is forked from https://github.com/KulunuOS/gazebo_dataset_generation
+
+All modifications are done for the needs of Diesel engine part dataset generation
 
 ## Automatic Dataset Generation From CAD for Vision Based Grasping
 
