@@ -196,10 +196,34 @@
     </include> 	
 
      <include>
+      <uri>model://3d_fuel_line2</uri>
+      <name>3d_fuel_line2</name>
+      <pose>0 -0.1 0.84 0 0 234</pose>
+    </include> 
+    
+    <include>
+      <uri>model://3d_common_line</uri>
+      <name>3d_common_line</name>
+      <pose>0.0 0.3 0.9 0 0 305</pose>
+    </include> 
+    
+    <include>
+      <uri>model://Valve_Tappet</uri>
+      <name>Valve_Tappet</name>
+      <pose>0.03 0.03 0.84 0 0 140</pose>
+    </include>
+    
+    <include>
       <uri>model://left_gear</uri>
       <name>left_gear</name>
-      <pose>0 0 0.84 0 0 0</pose>
-    </include> 
+      <pose>0.2 -0.2 0.84 0 0 240</pose>
+    </include>
+    
+    <include>
+      <uri>model://3d_housing</uri>
+      <name>3d_housing</name>
+      <pose>-0.1 0.1 0.84 0 0 270</pose>
+    </include>
     
     
     

@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<sdf version="1.0">
+  <model name="3d_engine_body">
+    <link name="link">
+      <pose>0 0 0.15 0 0 0</pose>
+      <inertial>
+        <pose>0.000289273 -0.003935282 -0.005881297 0 0 0</pose>
+        <mass>50</mass>
+        <inertia>
+          <ixx>1.27291143886463</ixx>
+          <ixy>-0.0116767671900775</ixy>
+          <ixz>0.00104491533688111</ixz>
+          <iyy>0.633064393076727</iyy>
+          <iyz>-0.000737879314154236</iyz>
+          <izz>1.63564622434518</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://3d_engine_body/body_0.01x.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>100000.0</mu>
+              <mu2>100000.0</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>1000000.0</kp>
+              <kd>1000000.0</kd>
+              <min_depth>0.001</min_depth>
+              <max_vel>0</max_vel>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://3d_engine_body/body_0.01x.stl</uri>
+          </mesh>
+        </geometry>
+<material>
+          <ambient>0.9 0.9 0.25 1</ambient>
+          <diffuse>0.9 0.9 0.25 1</diffuse>
+          <specular>0.01 0.01 0.01 1</specular>
+          <emissive>0 0 0 1</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
+        </material>
+        <cast_shadows>1</cast_shadows>
+        <transparency>0</transparency>
+      </visual>
+    </link>
+<static>0</static>
+    <allow_auto_disable>1</allow_auto_disable>
+  </model>
+</sdf>

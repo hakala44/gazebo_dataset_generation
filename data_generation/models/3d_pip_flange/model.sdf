@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<sdf version="1.0">
+  <model name="3d_flange">
+    <link name="link">
+      <inertial>
+        <pose>-0.000000468 0.000000981 0.014935569 0 0 0</pose>
+        <mass>0.6</mass>
+        <inertia>
+          <ixx>0.000291031327973623</ixx>
+          <ixy>-0.000000000459107182083864</ixy>
+          <ixz>-0.00000000245238099056876</ixz>
+          <iyy>0.000159553013306499</iyy>
+          <iyz>-0.00000000492950091588965</iyz>
+          <izz>0.000357936030316979</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://3d_pip_flange/flange_001.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>100000.0</mu>
+              <mu2>100000.0</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>1000000.0</kp>
+              <kd>1000000.0</kd>
+              <min_depth>0.001</min_depth>
+              <max_vel>0</max_vel>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://3d_pip_flange/flange_001.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+<static>0</static>
+    <allow_auto_disable>1</allow_auto_disable>
+  </model>
+</sdf>

@@ -1,0 +1,50 @@
+<html><head>
+<title>mesh2pcld_poisson.py</title>
+<meta name="Generator" content="htmlizer/[Twisted, version 18.9.0]" />
+<link rel="alternate" href="mesh2pcld_poisson.py" type="text/x-python" />
+
+</head>
+<body>
+<pre><span class="py-src-variable">import</span> <span class="py-src-variable">open3d</span> <span class="py-src-variable">as</span> <span class="py-src-variable">o3d</span>
+<span class="py-src-variable">import</span> <span class="py-src-variable">numpy</span> <span class="py-src-variable">as</span> <span class="py-src-variable">np</span>
+<span class="py-src-variable">import</span> <span class="py-src-variable">argparse</span>
+<span class="py-src-variable">import</span> <span class="py-src-variable">os</span>
+
+
+<span class="py-src-variable">parser</span> = <span class="py-src-variable">argparse</span>.<span class="py-src-variable">ArgumentParser</span>(<span class="py-src-variable">description</span>=<span class="py-src-string">&quot;Arg parser&quot;</span>)
+
+<span class="py-src-string">&#x27;&#x27;&#x27; This script loads a .stl .ply or .obj mesh file of the object and runs poisson re-construction on it to sample a preset number of points from the mesh &#x27;&#x27;&#x27;</span>
+<span class="py-src-string">&#x27;&#x27;&#x27; This is used for dataset generation when object pointclouds are reprojected into an image at their respective poses, to draw the class-label images from scratch &#x27;&#x27;&#x27;</span>
+
+<span class="py-src-variable">parser</span>.<span class="py-src-variable">add_argument</span>(
+    <span class="py-src-string">&quot;-dataset&quot;</span>,
+    <span class="py-src-variable">type</span>=<span class="py-src-variable">str</span>,
+    <span class="py-src-variable">default</span>=<span class="py-src-string">&#x27;openDR&#x27;</span>,
+    <span class="py-src-variable">help</span>=<span class="py-src-string">&quot;Define dataset you want to save the pointcloud to&quot;</span>,
+)
+
+
+<span class="py-src-variable">parser</span>.<span class="py-src-variable">add_argument</span>(
+    <span class="py-src-string">&quot;-obj_id&quot;</span>,
+    <span class="py-src-variable">type</span>=<span class="py-src-variable">int</span> ,
+    <span class="py-src-variable">default</span>=<span class="py-src-number">0</span>,
+    <span class="py-src-variable">help</span>=<span class="py-src-string">&quot;Class ID of the object &quot;</span>,
+)
+
+<span class="py-src-variable">parser</span>.<span class="py-src-variable">add_argument</span>(
+    <span class="py-src-string">&quot;-mesh_file&quot;</span>,
+    <span class="py-src-variable">type</span>=<span class="py-src-variable">str</span> ,
+    <span class="py-src-variable">default</span>=<span class="py-src-number">0</span>,
+    <span class="py-src-variable">help</span>=<span class="py-src-string">&quot;path of the .stl .ply or .obj mesh file &quot;</span>,
+)
+<span class="py-src-variable">args</span> = <span class="py-src-variable">parser</span>.<span class="py-src-variable">parse_args</span>()
+
+
+<span class="py-src-variable">mesh</span> = <span class="py-src-variable">o3d</span>.<span class="py-src-variable">io</span>.<span class="py-src-variable">read_triangle_mesh</span>(<span class="py-src-variable">str</span>(<span class="py-src-variable">args</span>.<span class="py-src-variable">mesh_file</span>))
+<span class="py-src-variable">poisson_pcld</span> = <span class="py-src-variable">mesh</span>.<span class="py-src-variable">sample_points_poisson_disk</span>(<span class="py-src-variable">number_of_points</span>=<span class="py-src-number">30000</span>)    <span class="py-src-comment">#This is the amount that was found to be dense enough i.e., after reprojection into 2D, there are no gaps or blank pixels in the object image</span>
+
+<span class="py-src-variable">o3d</span>.<span class="py-src-variable">io</span>.<span class="py-src-variable">write_point_cloud</span>(<span class="py-src-string">&#x27;./datasets/&#x27;</span>+<span class="py-src-variable">str</span>(<span class="py-src-variable">args</span>.<span class="py-src-variable">dataset</span>)+<span class="py-src-string">&#x27;/&#x27;</span>+<span class="py-src-variable">str</span>(<span class="py-src-variable">args</span>.<span class="py-src-variable">dataset</span>)+<span class="py-src-string">&#x27;_dataset/models/obj_&#x27;</span>+<span class="py-src-variable">str</span>(<span class="py-src-variable">args</span>.<span class="py-src-variable">obj_id</span>)+<span class="py-src-string">&#x27;.ply&#x27;</span>, <span class="py-src-variable">poisson_pcld</span> )  
+
+
+</pre>
+</body>

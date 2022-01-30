@@ -1,0 +1,70 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name='piston_and_conrod'>
+    <link name='link_12'>
+      <pose frame=''>-0.00025 -0.00015 2.1e-05 0 -0 0</pose>
+<inertial>
+    <pose>0.0 0 0.057495 0 0 0</pose>
+    <mass>0.05</mass>
+    <inertia>
+      <ixx>0.0014710151946336167</ixx>
+      <ixy>0</ixy>
+      <ixz>-0</ixz>
+      <iyy> 0.0014710151946336167</iyy>
+      <iyz>0</iyz>
+      <izz>0.0003899471</izz>
+    </inertia>
+  </inertial>
+          <visual name='visual'>
+        <geometry>
+          <mesh>
+            <uri>model://piston_and_conrod/Piston_and_Conrod.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.933 0.7490 0.0392 1</ambient>
+          <diffuse>0.933 0.7490 0.0392 1</diffuse>
+          <specular>0.01 0.01 0.01 1</specular>
+          <emissive>0 0 0 1</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
+        </material>
+        <cast_shadows>1</cast_shadows>
+        <transparency>0</transparency>
+      </visual>
+      <collision name='collision'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://piston_and_conrod/Piston_and_Conrod.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+
+<surface>
+          <friction>
+            <ode>
+              <mu>1e15</mu>
+              <mu2>1e15</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>1e15</kp>
+              <kd>1e13</kd>
+              <min_depth>0.0001</min_depth>
+              <max_vel>0</max_vel>
+            </ode>
+          </contact>
+        </surface>
+       </collision>
+    </link>
+    
+    <static>0</static>
+    <allow_auto_disable>1</allow_auto_disable>
+  </model>
+</sdf>

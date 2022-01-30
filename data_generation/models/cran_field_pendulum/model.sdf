@@ -1,0 +1,70 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name='cran_field_pendulum'>
+    <link name='link_12'>
+      <pose frame=''>-0.000 -0.1058 -0.03052 0 -0 0</pose>
+<inertial>
+    <pose>0 0.15626959 0.04302 0 0 0</pose>
+    <mass>0.1</mass>
+    <inertia>
+      <ixx> 0.0018898709774258643</ixx>
+      <ixy>0</ixy>
+      <ixz>-0</ixz>
+      <iyy> 0.00020207761177342323</iyy>
+      <iyz>0</iyz>
+      <izz>0.0020398652521309625</izz>
+    </inertia>
+  </inertial>
+          <visual name='visual'>
+        <geometry>
+          <mesh>
+            <uri>model://cran_field_pendulum/cran_feld_pendulum.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.25 0.95 0.85 1</ambient>
+          <diffuse>0.25 0.95 0.85 1</diffuse>
+          <specular>0.01 0.01 0.01 1</specular>
+          <emissive>0 0 0 1</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
+        </material>
+        <cast_shadows>1</cast_shadows>
+        <transparency>0</transparency>
+      </visual>
+      <collision name='collision'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://cran_field_pendulum/cran_feld_pendulum.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+
+<surface>
+          <friction>
+            <ode>
+              <mu>1e15</mu>
+              <mu2>1e15</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>1e15</kp>
+              <kd>1e15</kd>
+              <min_depth>0.0001</min_depth>
+              <max_vel>0</max_vel>
+            </ode>
+          </contact>
+        </surface>
+       </collision>
+    </link>
+    
+    <static>0</static>
+    <allow_auto_disable>1</allow_auto_disable>
+  </model>
+</sdf>

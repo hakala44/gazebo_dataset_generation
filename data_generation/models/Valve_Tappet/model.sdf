@@ -1,0 +1,70 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name='Valve_Tappet'>
+    <link name='link_12'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+<inertial>
+    <pose>0 0 0 0 0 0</pose>
+    <mass>0.25</mass>
+    <inertia>
+      <ixx>1.2135371876748723e-05</ixx>
+      <ixy>0</ixy>
+      <ixz>-0</ixz>
+      <iyy>7.96024081407589e-05</iyy>
+      <iyz>0</iyz>
+      <izz>7.747736298327898e-05</izz>
+    </inertia>
+  </inertial>
+          <visual name='visual'>
+        <geometry>
+          <mesh>
+            <uri>model://Valve_Tappet/Valve_Tappet.stl</uri>
+            <scale>2 2 2</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.2 0.65 0.88 1</ambient>
+          <diffuse>0.2 0.65 0.88 1</diffuse>
+          <specular>0.01 0.01 0.01 1</specular>
+          <emissive>0 0 0 1</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
+        </material>
+        <cast_shadows>1</cast_shadows>
+        <transparency>0</transparency>
+      </visual>
+      <collision name='collision'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://Valve_Tappet/Valve_Tappet.stl</uri>
+            <scale>2 2 2</scale>
+          </mesh>
+        </geometry>
+
+<surface>
+          <friction>
+            <ode>
+              <mu>10000.0</mu>
+              <mu2>10000.0</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>10000.0</kp>
+              <kd>100.0</kd>
+              <min_depth>0.0001</min_depth>
+              <max_vel>0</max_vel>
+            </ode>
+          </contact>
+        </surface>
+       </collision>
+    </link>
+    
+    <static>0</static>
+    <allow_auto_disable>1</allow_auto_disable>
+  </model>
+</sdf>

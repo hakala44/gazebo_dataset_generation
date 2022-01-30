@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<sdf version="1.0">
+  <model name="3d_common_line">
+    <link name="link">
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.000901820451840421</ixx>
+          <ixy>0.0000000130817604737549</ixy>
+          <ixz>0.0000569922654045029</ixz>
+          <iyy>0.0330493409127238</iyy>
+          <iyz>-0.000000000102659592476005</iyz>
+          <izz>0.0326789402829885</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://3d_common_line/common-line_003x.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>999999999999999.0</mu>
+              <mu2>999999999999999.0</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>999999999999999.0</kp>
+              <kd>999999999999999.0</kd>
+              <min_depth>0.001</min_depth>
+              <max_vel>0</max_vel>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://3d_common_line/common-line_003x.stl</uri>
+          </mesh>
+        </geometry>
+<material>
+          <ambient>0.9 0.1 0.25 1</ambient>
+          <diffuse>0.9 0.1 0.25 1</diffuse>
+          <specular>0.01 0.01 0.01 1</specular>
+          <emissive>0 0 0 1</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
+        </material>
+        <cast_shadows>1</cast_shadows>
+        <transparency>0</transparency>
+      </visual>
+    </link>
+<static>0</static>
+    <allow_auto_disable>1</allow_auto_disable>
+  </model>
+</sdf>

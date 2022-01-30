@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="ball_bearing">
+    <link name="link">
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.048</mass>
+        <inertia>
+          <ixx>0.0000089</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0000049</iyy>
+          <iyz>0</iyz>
+          <izz>0.0000049</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <pose>-0.0055 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://3d_ballbearing/6202-2Z.dae</uri>
+          </mesh>
+        </geometry>
+
+        <surface>
+          <friction>
+            <ode>
+              <mu>100000.0</mu>
+              <mu2>100000.0</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>10000.0</kp>
+              <kd>1000.0</kd>
+              <min_depth>0.001</min_depth>
+              <max_vel>0</max_vel>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+      <visual name="visual">
+        <pose>-0.0055 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://3d_ballbearing/6202-2Z.dae</uri>
+          </mesh>
+        </geometry>
+<material>
+          <ambient>0.7 0.1 0.25 1</ambient>
+          <diffuse>0.7 0.1 0.25 1</diffuse>
+          <specular>0.01 0.01 0.01 1</specular>
+          <emissive>0 0 0 1</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
+        </material>
+        <cast_shadows>1</cast_shadows>
+        <transparency>0</transparency>
+      </visual>
+    </link>
+<static>0</static>
+    <allow_auto_disable>1</allow_auto_disable>
+  </model>
+</sdf>

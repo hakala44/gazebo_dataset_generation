@@ -1,0 +1,70 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name='cran_field_square_peg'>
+    <link name='link_12'>
+      <pose frame=''>-0.0255 -0.0155 2.1e-05 0 -0 0</pose>
+<inertial>
+    <pose>0.038.0275 0.0427 0 0 0</pose>
+    <mass>0.25</mass>
+    <inertia>
+      <ixx>0.00017746166</ixx>
+      <ixy>0</ixy>
+      <ixz>-0</ixz>
+      <iyy> 0.0001774616</iyy>
+      <iyz>0</iyz>
+      <izz>0.00005104166</izz>
+    </inertia>
+  </inertial>
+          <visual name='visual'>
+        <geometry>
+          <mesh>
+            <uri>model://cran_field_square_peg/cran_feld_square_peg1.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.6 0.6 0.8 1</ambient>
+          <diffuse>0.6 0.6 0.8 1</diffuse>
+          <specular>0.01 0.01 0.01 1</specular>
+          <emissive>0 0 0 1</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
+        </material>
+        <cast_shadows>1</cast_shadows>
+        <transparency>0</transparency>
+      </visual>
+      <collision name='collision'>
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://cran_field_square_peg/cran_feld_square_peg1.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+
+<surface>
+          <friction>
+            <ode>
+              <mu>1.15</mu>
+              <mu2>1.15</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>1e15</kp>
+              <kd>1e13</kd>
+              <min_depth>0.0001</min_depth>
+              <max_vel>0</max_vel>
+            </ode>
+          </contact>
+        </surface>
+       </collision>
+    </link>
+    
+    <static>0</static>
+    <allow_auto_disable>1</allow_auto_disable>
+  </model>
+</sdf>
